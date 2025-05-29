@@ -1,12 +1,10 @@
 <template>
   <h1>Hola Mundo</h1>
-  <ListaDeTareas></ListaDeTareas>
-  <Contador></Contador>
+  <MainView></MainView>
 </template>
 
 <script setup>
-import Contador from './components/icons/Contador.vue';
-import ListaDeTareas from './components/icons/ListaDeTareas.vue';
+  import MainView from './views/MainView.vue';
 </script>
 
 <style scoped>

@@ -1,11 +1,29 @@
 <template>
     <div>
         <h2>Lista de Tareas</h2>
-        <input type="text">
+        <input type="text" v-model="nuevaTarea" @keyup.enter="addTarea">
         <ul>
-            <li>tarea</li>
+            <li v-for="(tarea, index) in tareas" :key="index">  <!-- key le da una clave a cada elemento-->
+                {{ tarea }}
+                <button @click="borrarTarea">borrar</button>
+            </li>
         </ul>
     </div>
 </template>
-<script setup> </script>
+
+<script setup>
+    import { ref } from 'vue';
+
+    const tareas = ref([]);
+    const nuevaTarea = ref('');
+    const addTarea = () => {
+        tareas.value.push(nuevaTarea.value);
+        nuevaTarea.value = '';
+    }
+
+    const borrarTarea = (index) => {
+        tareas.value.splice(index, 1);
+    }
+</script>
+
 <style></style>
